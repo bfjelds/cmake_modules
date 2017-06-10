@@ -8,22 +8,7 @@ See the CONTRIBUTING.md file in this repository before submitting pull requests 
 ROS Distros
 -----------
 
-This repository has branches for minor releases (`0.2-devel`, `0.3-devel`, `0.4-devel`, etc...) and they map to specific ROS distributions like so:
-
-- `0.2-devel`:
- - ROS Groovy
-- `0.3-devel`:
- - ROS Hydro
- - ROS Indigo
-- `0.4-devel`:
- - ROS Jade
- - ROS Kinetic
- - ROS Lunar
-
-This mapping will be kept up-to-date in the `README.md` on the default branch.
-
-In the future, new minor releases will increment by the number of ROS distros that are skipped.
-For example, if a custom branch is needed for ROS Lunar, then it will be `0.6-devel` and not `0.5-devel`, so that `0.5-devel` maybe used by Kinetic in the future if necessary.
+This repository is intended to be used in the ROS 2 ament build system.
 
 Provided Modules
 ----------------
@@ -40,7 +25,7 @@ Provided Modules
 Usage
 -----
 
-To use the CMake modules provided by this catkin package, you must `<build_depend>` on it in your `package.xml`, like so:
+To use the CMake modules provided by this ament package, you must `<build_depend>` on it in your `package.xml`, like so:
 
 ```xml
 <?xml version="1.0"?>
@@ -50,13 +35,7 @@ To use the CMake modules provided by this catkin package, you must `<build_depen
 </package>
 ```
 
-Then you must `find_package` it in your `CMakeLists.txt` along with your other catkin build dependencies:
-
-```cmake
-find_package(catkin REQUIRED COMPONENTS ... cmake_modules ...)
-```
-
-OR by `find_package`'ing it directly:
+Then you must `find_package` the cmake_modules package directly:
 
 ```cmake
 find_package(cmake_modules REQUIRED)

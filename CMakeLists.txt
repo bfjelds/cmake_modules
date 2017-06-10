@@ -1,10 +1,29 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cmake_modules)
 
-find_package(catkin REQUIRED)
+# Add support for C++11
+if(NOT WIN32)
+  add_definitions(-std=c++11)
+endif()
 
-catkin_package(CFG_EXTRAS cmake_modules-extras.cmake)
+find_package(ament_cmake REQUIRED)
+
+set(INCLUDE_DIRS ${ament_cmake_INCLUDE_DIRS})
+include_directories(${INCLUDE_DIRS})
+
+set(LIBRARY_DIRS ${ament_cmake_LIBRARY_DIRS})
+
+link_directories(${LIBRARY_DIRS})
+
+set(LIBS ${ament_cmake_LIBRARIES})
 
 ## Install all cmake files
 install(DIRECTORY cmake/Modules
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake)
+  DESTINATION share/${PROJECT_NAME}/cmake)
+
+ament_export_dependencies(ament_cmake)
+ament_export_include_directories(${INCLUDE_DIRS})
+
+ament_package(
+  CONFIG_EXTRAS "cmake/cmake_modules-extras.cmake.in"
+)
