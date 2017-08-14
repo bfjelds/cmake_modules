@@ -20,7 +20,6 @@ Provided Modules
 1. [**Xenomai**](http://www.xenomai.org/) is a real-time development framework cooperating with the Linux kernel.
 1. [**GSL**](http://www.gnu.org/software/gsl/) is a numerical library for C and C++ programmers.
 1. [**Gflags**](https://gflags.github.io/gflags/) is a C++ library that implements commandline flags processing with the ability to define flags in the source file in which they are used.
-1. \[Deprecated\] [**Eigen**](http://eigen.tuxfamily.org/index.php?title=Main_Page) is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
 
 Usage
 -----
@@ -48,12 +47,6 @@ find_package(TinyXML REQUIRED)
 ```
 
 ### Lookup sheet
-
-##### Eigen [Deprecated]
-
-```cmake
-find_package(Eigen REQUIRED)
-```
 
 ##### NumPY
 
